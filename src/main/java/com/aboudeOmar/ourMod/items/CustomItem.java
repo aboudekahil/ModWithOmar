@@ -1,4 +1,4 @@
-package com.aboudeOmar.ourMod;
+package com.aboudeOmar.ourMod.items;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -6,7 +6,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.slf4j.Logger;
@@ -24,7 +23,6 @@ public class CustomItem extends Item {
         playerEntity.playSound(SoundEvents.BLOCK_WOOL_BREAK, 1.0F, 1.0F);
         if(world.isClient() && (playerEntity.isOnGround() || jumpCount == 1)){
             jumpCount++;
-            LOGGER.info("" + jumpCount);
             playerEntity.jump();
         }
 
@@ -32,4 +30,5 @@ public class CustomItem extends Item {
 
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
+
 }
